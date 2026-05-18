@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/workspace.iml" filepath="$PROJECT_DIR$/workspace.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/java_won.iml" filepath="$PROJECT_DIR$/.idea/java_won.iml" />
     </modules>
   </component>
 </project>
