@@ -11,12 +11,34 @@ public class SwitchTest2
 {
     public static void main(String[] args)
     {
-        int price = 10000;  //정상가
+        int age = 15;
+        int price = 20000;  //정상가
         int lastPrice = price;  // 할인가
-        char grade = 'D';   // 회원 등급
-        int discountRate = 0;   // 할인율(%)
+        double discountRate = 0.0;   // 할인율(%)
 
-        System.out.println("회원님은 B등급이므로 정상가 10000원에서 30% 할인된 가격 7000원 입니다.");
+        if( age <= 7)
+        {
+            discountRate = 1.0;
+        }
+        else if (age <= 13)
+        {
+            discountRate = 0.5;
+        }
+        else if(age <= 19)
+        {
+            discountRate = 0.3;
+        }
+        else if (age <= 65)
+        {
+            discountRate = 0.7;
+        }
+        else
+        {
+            discountRate = 0.0;
+        }
+        lastPrice = price * (1-(int)discountRate);
+
+        System.out.println("나이가 " + age + "세 이므로 할인율 " + discountRate * 100 + "%가 적용되어 요금은 " +lastPrice + "원 입니다.");
 
 
 
