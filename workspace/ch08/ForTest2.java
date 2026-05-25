@@ -1,0 +1,20 @@
+package ch08;
+
+// 첫달에 1원을 받고 매달 두배씩 받을때
+// 3년째 되는 달에는 얼마를 받는가?
+
+public class ForTest2
+{
+    public static void main(String[] args)
+    {
+        long sal = 1;    // 월급
+
+         for(int month = 1;month < 36; month++)
+         {
+             sal *= 2;
+         }
+
+        System.out.println("3년째의 급여: " + sal);
+
+    }
+}
