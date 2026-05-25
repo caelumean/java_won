@@ -2,22 +2,24 @@ package homework.h01;
 
 import java.util.Scanner;
 
-public class Game {
-    public static void main(String[] args){
+public class Game
+{
+    public static void main(String[] args)
+    {
         Scanner s = new Scanner(System.in);
         System.out.println("***멋쟁이 전사처럼***");
         System.out.println("캐릭터 이름을 지어주세요.");
 
         // 플레이어 관련
         String name = s.next();
-        int Hp = 100;
-        int currentHp = 100; // Hp
+        int Hp = 100;       // 최대Hp
+        int currentHp = Hp; // 현재Hp
         int Mp = 50;
         int currentMp = 50;
-        int damage = 0; // 내 피해량
+        int damage = 0;     // 데미지
 
-        // 크리티컬 확률
-        int criticalChance = 50;    // 20퍼
+        // 크리티컬
+        int criticalChance = 50;          // 20퍼
         double criticalMultiple = 2.0;    // 2배
 
         int ultimateSkill = 1; // 필살기 기술 수량
@@ -27,9 +29,9 @@ public class Game {
         int enemy = 0;
         String enemyName = "";
         String enemySkillName = "";
-        int enemyHp = 0; // 몬스터 HP
+        int enemyHp = 0;        // 몬스터 HP
         int enemyCurrentHp = 0; // 몬스터 현재HP
-        int enemyDamage = 0; // 몬스터 피해량
+        int enemyDamage = 0;    // 몬스터 피해량
 
         int enemyCriticalChance = 0;
 
