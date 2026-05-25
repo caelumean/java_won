@@ -184,7 +184,6 @@ public class Game
                     if(currentHp <= 0)
                     {
                         currentHp = 0;
-                        System.out.println( name + "HP: " + currentHp + "/" + Hp);
                     }
 
                     System.out.println( enemyName + "HP: " + enemyCurrentHp + "/" + enemyHp);
