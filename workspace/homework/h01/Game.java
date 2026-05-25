@@ -24,18 +24,19 @@ public class Game
 
 
         // 몬스터 관련
-        int enemy = 0;
         String enemyName = "";
         String enemySkillName = "";
-        int enemyHp = 0;        // 몬스터 HP
+        int enemy = 0;
+        int enemyHp = 0;        // 몬스터 최대HP
         int enemyCurrentHp = 0; // 몬스터 현재HP
-        int enemyDamage = 0;    // 몬스터 피해량
+        int enemyDamage = 0;    // 몬스터 데미지
 
         int enemyCriticalChance = 0;
 
         int enemySkillChance = 0;
-        double enemySkillMultiplier = 0;
         int enemySkillDamage = 0;
+        double enemySkillMultiplier = 0;
+
 
         System.out.println(name + " 모험가님 어서오세요");
         System.out.println("모험을 시작합니다");
@@ -99,11 +100,13 @@ public class Game
         {
             System.out.println("----------------" +name + "의 모험----------------");
 
-            System.out.println( enemyName + "HP: " + enemyCurrentHp + "/" + enemyHp);
+            System.out.println(enemyName);
+            System.out.println("HP: " + enemyCurrentHp + "/" + enemyHp);
             System.out.println("1) 싸운다 2) 도망간다 3) HP 회복 4) 필살기");
             int action = s.nextInt();
 
-            switch(action){
+            switch(action)
+            {
                 // 일반 공격
                 // 크리티컬 확률
                 case 1 -> {
