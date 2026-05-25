@@ -14,8 +14,6 @@ public class Game
         String name = s.next();
         int Hp = 100;       // 최대Hp
         int currentHp = Hp; // 현재Hp
-        int Mp = 50;
-        int currentMp = 50;
         int damage = 0;     // 데미지
 
         // 크리티컬
