@@ -17,7 +17,7 @@ public class Game
         int damage = 0;     // 데미지
 
         // 크리티컬
-        int criticalChance = 50;          // 20퍼
+        int criticalChance = 20;          // 20퍼
         double criticalMultiple = 2.0;    // 2배
 
         int ultimateSkill = 1; // 필살기 기술 수량
@@ -153,10 +153,10 @@ public class Game
                     // 스킬
                     if(enemySkillProb < enemySkillChance)
                     {
-                        enemyCurrentDamage = (int)(enemyCurrentDamage * enemySkillMultiplier);
+                        enemySkillDamage = (int)(enemySkillDamage * enemySkillMultiplier);
                         System.out.println("!"+enemyName + " " + enemySkillName +" 스킬 사용!");
-                        currentHp -= enemyCurrentDamage;
-                        System.out.println(name + "가(이) "+enemyCurrentDamage + "피해를 입었습니다.");
+                        currentHp -= enemySkillDamage;
+                        System.out.println(name + "가(이) "+enemySkillDamage + "피해를 입었습니다.");
                         //System.out.println("몬스터 데미지: " +enemyDamage + "/" + enemyCurrentDamage);
 
                     }
