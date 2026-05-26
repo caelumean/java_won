@@ -249,7 +249,6 @@ public class Game
             {
                 break;
             }
-
         }
 
         if(currentHp <= 0)
