@@ -49,7 +49,7 @@ public class Game
         {
             case 0 -> {
                 enemyName = "병사";
-                enemySkillName = "칼휘두르기";
+                enemySkillName = "검 휘두르기";
                 enemyHp = (int)(Math.random() * 11) + 10; // 10 ~ 20
                 // 최대 체력을 현재 체력에 넣기
                 enemyCurrentHp = enemyHp;
@@ -66,7 +66,7 @@ public class Game
             }
             case 1 -> {
                 enemyName = "가고일";
-                enemySkillName = "꼬리휘두르기";
+                enemySkillName = "물어찢기";
                 enemyHp = (int)(Math.random() * 11) + 30; // 30 ~ 40
                 enemyCurrentHp = enemyHp;
                 enemyDamage = 15;
