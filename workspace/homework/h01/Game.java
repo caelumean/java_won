@@ -37,6 +37,8 @@ public class Game
         int enemySkillDamage = 0;
         double enemySkillMultiplier = 0;
 
+        boolean isRunning = true;
+
 
         System.out.println(name + " 모험가님 어서오세요");
         System.out.println("모험을 시작합니다");
@@ -96,7 +98,7 @@ public class Game
             }
         }
 
-        while(true)
+        while(isRunning)
         {
             System.out.println("----------------" +name + "의 모험----------------");
 
@@ -192,7 +194,7 @@ public class Game
                 }
                 case 2 -> {
                     System.out.println("무사히 도망쳤습니다.");
-                    System.out.println( name + "HP: " + currentHp + "/" + Hp);
+                    isRunning = false;
                 }
                 // HP 회복 : 10 ~ 20 사이
                 case 3 -> {
