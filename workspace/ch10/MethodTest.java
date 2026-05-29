@@ -1,0 +1,49 @@
+package ch10;
+
+public class MethodTest
+{
+
+    // 10과 100의 합계를 출력하는 메서드
+    public void add()
+    {
+        int n1 = 10;
+        int n2 = 100;
+        int sum = n1 + n2;
+
+        System.out.println(n1 + " + " + n2 + " = " + sum);
+
+    }
+
+    // 전달되는 인자와 100의 합계를 출력하는 메서드
+    void add100(int n1) // n1: 매개변수
+    {
+        int n2 = 100;
+        int sum = n1 + n2;
+
+        System.out.println(n1 + " + " + n2 + " = " + sum);
+
+    }
+
+    // 전달되는 인자 두개의 합계를 출력하는 메서드
+    void printSum(int n1,int n2)
+    {
+        int sum = n1 + n2;
+
+        System.out.println(n1 + " + " + n2 + " = " + sum );
+    }
+    void main(String[] args)
+    {
+        add();
+        add();
+
+        add100(20);
+        add100(30);
+
+        printSum(40, 50);
+        printSum(60 ,70);
+
+       // 여기 이따가 추가해야함
+
+    }
+
+}
