@@ -32,6 +32,8 @@ public class Game
         int enemyDamage = 0;    // 몬스터 데미지
 
         int enemyCriticalChance = 0;
+        int enemyCriticalDamage = 0;
+        double enemyCriticalMultiple = 2.0;
 
         int enemySkillChance = 0;
         int enemySkillDamage = 0;
@@ -59,6 +61,7 @@ public class Game
 
                 // 크리티컬
                 enemyCriticalChance = 20;
+                enemyCriticalDamage =  (int)(enemyDamage * enemyCriticalMultiple);
 
                 // 스킬
                 enemySkillChance = 30;
@@ -75,6 +78,7 @@ public class Game
 
                 // 크리티컬
                 enemyCriticalChance = 20;
+                enemyCriticalDamage =  (int)(enemyDamage * enemyCriticalMultiple);
 
                 // 스킬
                 enemySkillChance = 30;
@@ -90,6 +94,7 @@ public class Game
 
                 // 크리티컬
                 enemyCriticalChance = 10;
+                enemyCriticalDamage =  (int)(enemyDamage * enemyCriticalMultiple);
 
                 // 스킬
                 enemySkillChance = 20;
@@ -147,15 +152,13 @@ public class Game
                     }
 
                     // 몬스터 데미지 / 스킬 /크리티컬
-                    int enemyCurrentDamage = enemyDamage;
-                    double enemyCriticalMultiple = 2.0;
+
                     int enemyCriticalProb = (int)(Math.random() * 100);
                     int enemySkillProb = (int)(Math.random() * 100);
 
                     // 스킬
                     if(enemySkillProb < enemySkillChance)
                     {
-                        enemySkillDamage = (int)(enemySkillDamage * enemySkillMultiplier);
                         System.out.println("!"+enemyName + " " + enemySkillName +" 스킬 사용!");
                         currentHp -= enemySkillDamage;
                         System.out.println(name + "가(이) "+enemySkillDamage + "피해를 입었습니다.");
@@ -165,10 +168,10 @@ public class Game
                     //크리티컬
                     else if(enemyCriticalProb < enemyCriticalChance)
                     {
-                        enemyCurrentDamage = (int)(enemyCurrentDamage * enemyCriticalMultiple);
+
                         System.out.println("!!!!"+enemyName+" 크리티컬!!!!");
-                        currentHp -= enemyCurrentDamage;
-                        System.out.println(name + "가(이) "+enemyCurrentDamage + " 피해를 입었습니다.");
+                        currentHp -= enemyCriticalDamage;
+                        System.out.println(name + "가(이) "+enemyCriticalDamage + " 피해를 입었습니다.");
                         //System.out.println("몬스터 데미지: " +enemyDamage + "/" + enemyCurrentDamage);
 
 
@@ -178,7 +181,7 @@ public class Game
                     {
                         System.out.println(enemyName + " 일반 공격!");
                         currentHp -= enemyDamage;
-                        System.out.println(name + "가(이) "+enemyCurrentDamage + " 피해를 입었습니다.");
+                        System.out.println(name + "가(이) "+enemyDamage + " 피해를 입었습니다.");
 
                     }
 
