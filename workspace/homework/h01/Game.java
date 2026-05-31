@@ -214,7 +214,7 @@ public class Game
                     System.out.println( name + "HP: " + currentHp + "/" + Hp);
                 }
                 // 필살기 바꿔보기
-                // 플레이어의 최대 체력 10퍼센트 감소 시키기
+                // 플레이어의 최대 체력의 10퍼센트만큼 현재 체력 감소 시키기
                 // 사용 횟수 1
                 // 데미지 6배
                 case 4 -> {

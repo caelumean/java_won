@@ -7,7 +7,7 @@ public class Game
     // 플레이어 일반 데미지
     static int getPlayerDamage()
     {
-        return (int)(Math.random() * 6) + 5;
+        return (int)(Math.random() * 6) + 5;    // 5 ~ 10
     }
 
     // 크리티컬
@@ -153,7 +153,7 @@ public class Game
         int enemyCriticalChance = 0;
         if(enemy == 0)
         {
-            enemyCriticalChance = 30;
+            enemyCriticalChance = 20;
             return enemyCriticalChance;
         }
         else if (enemy == 1)
@@ -408,7 +408,7 @@ public class Game
                   currentHp = playerHill(name, currentHp, Hp);
                 }
                 // 필살기 바꿔보기
-                // 플레이어의 최대 체력 10퍼센트 감소 시키기
+                // 플레이어의 최대 체력의 10퍼센트만큼 현재 체력 감소 시키기
                 // 사용 횟수 1
                 // 데미지 6배
                 case 4 -> {
