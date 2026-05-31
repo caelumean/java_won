@@ -33,10 +33,10 @@ public class Game
         return  enemyCurrentHp;
 
     }
-    static  int playerHill(String playerName, int playerCurrentHp,int Hp)
+    static  int playerHeal(String playerName, int playerCurrentHp,int Hp)
     {
-        int hill = (int)(Math.random() * 11) + 10;
-        playerCurrentHp += hill;
+        int heal = (int)(Math.random() * 11) + 10;
+        playerCurrentHp += heal;
 
         // 힐했을때 최대 Hp보다 크지 못하게 막아주기
         if(playerCurrentHp > Hp)
@@ -44,7 +44,7 @@ public class Game
             playerCurrentHp = Hp;
         }
 
-        System.out.println("체력 " + hill +"회복!!");
+        System.out.println("체력 " + heal +"회복!!");
         System.out.println( playerName + "HP: " + playerCurrentHp + "/" + Hp);
 
         return playerCurrentHp;
@@ -259,6 +259,20 @@ public class Game
         System.out.println(enemyName + " 처치!");
     }
 
+    // 캐릭터 생성
+    static String createPlayer()
+    {
+        System.out.println("***멋쟁이 전사처럼***");
+        System.out.println("캐릭터 이름을 지어주세요.");
+
+        Scanner sc = new Scanner(System.in);
+        String playerName = sc.next();
+
+        System.out.println(playerName + " 모험가님 어서오세요");
+        System.out.println("모험을 시작합니다");
+
+        return playerName;
+    }
     // 게임시작시
     static int printGameStart(String playerName, String enemyName, int enemyCurrentHp,int enemyHp)
     {
@@ -282,12 +296,8 @@ public class Game
     }
     public static void main(String[] args)
     {
-        Scanner sc = new Scanner(System.in);
-        System.out.println("***멋쟁이 전사처럼***");
-        System.out.println("캐릭터 이름을 지어주세요.");
 
         // 플레이어 관련
-        String name = sc.next();
         int Hp = 100;       // 최대Hp
         int currentHp = Hp; // 현재Hp
         int damage = 0;     // 데미지
@@ -316,9 +326,8 @@ public class Game
 
         boolean isRunning = true;
 
-
-        System.out.println(name + " 모험가님 어서오세요");
-        System.out.println("모험을 시작합니다");
+        // 플레이어 이름
+        String name = createPlayer();
 
         // 몬스터 생성
         // 몬스터 종류 만들기
@@ -370,7 +379,7 @@ public class Game
                         break;
                     }
 
-                    // 몬스터 데미지 / 스킬 /크리티컬
+                    // 몬스터 스킬 > 크리티컬 > 일반 공격
                     int enemyCriticalProb = (int)(Math.random() * 100);
                     int enemySkillProb = (int)(Math.random() * 100);
 
@@ -405,7 +414,7 @@ public class Game
                 }
                 // HP 회복 : 10 ~ 20 사이
                 case 3 -> {
-                  currentHp = playerHill(name, currentHp, Hp);
+                  currentHp = playerHeal(name, currentHp, Hp);
                 }
                 // 필살기 바꿔보기
                 // 플레이어의 최대 체력의 10퍼센트만큼 현재 체력 감소 시키기

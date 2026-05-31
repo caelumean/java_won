@@ -6,12 +6,8 @@ public class Game
 {
     public static void main(String[] args)
     {
-        Scanner s = new Scanner(System.in);
-        System.out.println("***멋쟁이 전사처럼***");
-        System.out.println("캐릭터 이름을 지어주세요.");
 
-        // 플레이어 관련
-        String name = s.next();
+        //플레이어 관련
         int Hp = 100;       // 최대Hp
         int currentHp = Hp; // 현재Hp
         int damage = 0;     // 데미지
@@ -41,7 +37,11 @@ public class Game
 
         boolean isRunning = true;
 
+        Scanner s = new Scanner(System.in);
+        System.out.println("***멋쟁이 전사처럼***");
+        System.out.println("캐릭터 이름을 지어주세요.");
 
+        String name = s.next();
         System.out.println(name + " 모험가님 어서오세요");
         System.out.println("모험을 시작합니다");
 
@@ -201,8 +201,8 @@ public class Game
                 }
                 // HP 회복 : 10 ~ 20 사이
                 case 3 -> {
-                    int hill = (int)(Math.random() * 11) + 10;
-                    currentHp += hill;
+                    int heal = (int)(Math.random() * 11) + 10;
+                    currentHp += heal;
 
                     // 힐했을때 최대 Hp보다 크지 못하게 막아주기
                     if(currentHp > Hp)
@@ -210,7 +210,7 @@ public class Game
                         currentHp = Hp;
                     }
 
-                    System.out.println("체력 " + hill +"회복!!");
+                    System.out.println("체력 " + heal +"회복!!");
                     System.out.println( name + "HP: " + currentHp + "/" + Hp);
                 }
                 // 필살기 바꿔보기
