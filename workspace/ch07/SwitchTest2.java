@@ -40,8 +40,5 @@ public class SwitchTest2
 
         System.out.println("나이가 " + age + "세 이므로 할인율 " + discountRate * 100 + "%가 적용되어 요금은 " +lastPrice + "원 입니다.");
 
-
-
-
     }
 }

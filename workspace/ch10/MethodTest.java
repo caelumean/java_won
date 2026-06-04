@@ -31,6 +31,11 @@ public class MethodTest
 
         System.out.println(n1 + " + " + n2 + " = " + sum );
     }
+    // 전달되는 인자 두개의 합계를 반환하는 메서드
+    int getSum(int n1, int n2){
+        int sum = n1 + n2;
+        return sum;
+    }
     void main(String[] args)
     {
         add();
@@ -42,7 +47,8 @@ public class MethodTest
         printSum(40, 50);
         printSum(60 ,70);
 
-       // 여기 이따가 추가해야함
+        int result = getSum(70, 80);
+        System.out.println(result);
 
     }
 

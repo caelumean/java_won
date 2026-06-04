@@ -29,9 +29,5 @@ public class ScoreArrayTest
         // 4 ~ 8byte
         String[] ha;
         ha = new String[5];
-
-
-
-
     }
 }

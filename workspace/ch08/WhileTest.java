@@ -22,5 +22,4 @@ public class WhileTest
         }
         System.out.println("1부터 " + num + "까지의 합계: " + sum);
     }
-
 }

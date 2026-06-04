@@ -4,7 +4,6 @@ public class OperatorTest
 {
     static void main()
     {
-        // https://velog.io/@guri/%EC%9D%B8%ED%85%94%EB%A6%AC%EC%A0%9C%EC%9D%B4Intellij-%EB%94%94%EB%B2%84%EA%B1%B0-%EC%82%AC%EC%9A%A9%EB%B2%95-Debugging-%ED%95%98%EA%B8%B0
         int num1 = 5;
         int num2 = 28;
         int num3;

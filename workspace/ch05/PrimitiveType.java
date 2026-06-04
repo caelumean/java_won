@@ -66,7 +66,5 @@ public class PrimitiveType
         // 상수는 재할당을 할 수 없다.
         final double PI = 3.14;
         System.out.println( PI * 5 * 5);
-
-
     }
 }
