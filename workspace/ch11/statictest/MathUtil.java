@@ -8,9 +8,9 @@ public class MathUtil {
 
     // 인스턴스 필드
     // static메서드 안에서 인스턴스 필드를 사용할 수 없는 이유는
-    // 인스턴스 필드는 heap영역에서 만들어지는데 이건 new로 만들어야하는데
-    // 그러면 static은 new안해도 만들 수 있는데 인스턴스 필드는 new로 해서 만들어지기 때문에
-    // 모순이 생기기 때문에 static메서드에서 사용할 수 없다.
+    // 인스턴스 필드는 heap영역에서 new로 인스턴스화해서 만든다.
+    // 그러나 static은 new 안해도 만들 수 있는데 인스턴스 필드는 new로 해서 만들어지기 때문에
+    // 모순이 생겨서 static메서드에서 사용할 수 없다.
     // 매개변수는 상관이 없다.
     int r = 5;
 
@@ -23,6 +23,4 @@ public class MathUtil {
     static int add(int n1, int n2){
         return n1 + n2;
     }
-
-
 }
