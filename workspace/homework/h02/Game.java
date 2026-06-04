@@ -33,7 +33,7 @@ public class Game
         return  enemyCurrentHp;
 
     }
-    static  int playerHeal(String playerName, int playerCurrentHp,int Hp)
+    static int playerHeal(String playerName, int playerCurrentHp,int Hp)
     {
         int heal = (int)(Math.random() * 11) + 10;
         playerCurrentHp += heal;
@@ -49,7 +49,6 @@ public class Game
 
         return playerCurrentHp;
     }
-
     static int playerUltimayeSkillUse(String enemyName, int enemyCurrentHp)
     {
         int playerDamage = getPlayerDamage();
@@ -86,7 +85,6 @@ public class Game
             return enemyName = "골렘";
         }
     }
-
     // 몬스터스킬이름
     static String getEnemySkillName(int enemy)
     {
@@ -105,7 +103,6 @@ public class Game
             return enemySkillName = "돌주먹";
         }
     }
-
     // 몬스터 체력
     static int getEnemyHp(int enemy)
     {
@@ -258,7 +255,6 @@ public class Game
         System.out.println( enemyName + "HP: " + enemyCurrentHp + "/" + enemyHp);
         System.out.println(enemyName + " 처치!");
     }
-
     // 캐릭터 생성
     static String createPlayer()
     {
@@ -307,7 +303,6 @@ public class Game
         double criticalMultiple = 2.0;    // 2배
 
         int ultimateSkill = 1; // 필살기 기술 수량
-
 
         // 몬스터 관련
         String enemyName = "";
@@ -404,9 +399,7 @@ public class Game
                     {
                         currentHp = 0;
                     }
-
                     printPlayerHpEnemyHp(name, currentHp, Hp, enemyName, enemyCurrentHp, enemyHp);
-
                 }
                 case 2 -> {
                     System.out.println("무사히 도망쳤습니다.");
@@ -423,7 +416,6 @@ public class Game
                 case 4 -> {
                     if(ultimateSkill > 0)
                     {
-
                         enemyCurrentHp = playerUltimayeSkillUse(enemyName,enemyCurrentHp);
                         // Skill 횟수 감소
                         ultimateSkill--;
@@ -434,7 +426,6 @@ public class Game
                         {
                             enemyCurrentHp = 0;
                         }
-
                         printPlayerHpEnemyHp(name, currentHp, Hp, enemyName, enemyCurrentHp, enemyHp);
                     }
                     else
