@@ -6,7 +6,8 @@ public class Bus extends Car{
     private String type;    // 광역버스,마을버스, 시내버스 ...
     private String[] stations;  // 노선
     private int station; // 현재 위치
-    private int price;  // 승차비
+    private int price = 1300;// 승차비
+    private int totalPrice = 0;
     private int maxPassenger;   // 최대 승객수
     private int money;  // 현재까지의 수익
     private int totalMoney; // 운영하는 모든 버스의 수익
@@ -23,10 +24,17 @@ public class Bus extends Car{
     }
 
     // 승차합니다
-    void ride(){
+    void ride(Passenger passenger){
+        // 수익 증가
+        // 어린이 / 청소년 / 성인 / 노인별 할인율 적용해서 할인
+        // 교통카드 / 현금 / 기타 할인 (지역 주민 할인, 특정 카드 이용시 할인)
         if(passengerCount < maxPassenger){
             passengerCount++;
             System.out.println("1명이 승차합니다.");
+            totalPrice = (int)(price * passenger.getDiscountRate())
+                    - passenger.getDiscountPaymentType() - passenger.localResident();
+            System.out.println(totalPrice + "원 결제");
+            money += totalPrice;
         }else{
             System.out.println("승차 인원이 초과되었습니다. 다음 버스를 타세요.");
         }
@@ -55,10 +63,27 @@ public class Bus extends Car{
     }
 
     // 기다리는 버스가 몇 정거장 전에 있는가?
-    int getStationsLeft(){
+    public int getStationsLeft(Passenger passenger){
         int result = 0;
-
+        String passengerLocation = passenger.getPassengerLocation();
+        // System.out.println("손님역 : " + passengerLocation);
+        for (int i = 0; i < stations.length; i++){
+            //System.out.println("비교: " +stations[i]);
+            if(stations[i].equals(passengerLocation)){
+                //System.out.println("찾아냄" +stations[i]);
+                if(i >= station){
+                    return i - station;
+                }else {
+                    return stations.length - station + i;
+                }
+            }
+        }
         return result;
+    }
+    public void printBusLocation(Passenger passenger){
+        System.out.println(passenger.getName()+" "+passenger.getPassengerLocation());
+        int loacation = getStationsLeft(passenger);
+        System.out.println( loacation + " 정거장 남았습니다.");
     }
     // 버스의 현재 상태를 출력합니다.
     String getBusInfo(){
@@ -66,6 +91,7 @@ public class Bus extends Car{
                 + ", 종류: " + type
                 + ", 현재 위치: " + stations[station]
                 + ", 남은 좌석: "+ (maxPassenger - passengerCount)
-                + ", 요금: " + price;
+                + ", 요금: " + price
+                + ", 현재까지 수익: " + money;
     }
 }
