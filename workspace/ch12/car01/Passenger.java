@@ -1,4 +1,4 @@
-package ch12.car;
+package ch12.car01;
 
 public class Passenger {
     String name;
@@ -85,7 +85,7 @@ public class Passenger {
     }
 
      public int localResident(){
-        if(localResident == true){
+        if(localResident){
             return 100;
         }else {
             return 0;

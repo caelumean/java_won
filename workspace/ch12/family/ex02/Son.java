@@ -17,4 +17,8 @@ public class Son extends Parent {
         System.out.println(name + ": 일한다.");
     }
 
+    public void study(){
+        System.out.println(name + ": 도서관에서 공부한다.");
+    }
+
 }

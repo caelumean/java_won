@@ -1,4 +1,4 @@
-package ch12.car;
+package ch12.car01;
 
 public class BusTest {
     void main(){

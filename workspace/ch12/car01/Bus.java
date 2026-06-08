@@ -1,4 +1,4 @@
-package ch12.car;
+package ch12.car01;
 
 public class Bus extends Car{
     private int passengerCount; // 승객 수
@@ -6,7 +6,7 @@ public class Bus extends Car{
     private String type;    // 광역버스,마을버스, 시내버스 ...
     private String[] stations;  // 노선
     private int station; // 현재 위치
-    private int price = 1300;// 승차비
+    private int price;// 승차비
     private int totalPrice = 0;
     private int maxPassenger;   // 최대 승객수
     private int money;  // 현재까지의 수익
@@ -15,6 +15,7 @@ public class Bus extends Car{
     // 컴파일러에 의해서 자동으로 생성되는 기본 생성자 모습
     // 부모의 클래스에서 기본생성자가 아니라 String을 매개변수로 받는 생성자를 쓰겠다.
     public Bus(String model, String no, String type, String[] stations, int price, int maxPassenger) {
+        // 명시적으로
         super(model);
         this.no = no;
         this.type = type;
