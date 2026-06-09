@@ -1,4 +1,4 @@
-package ch12.family.ex02;
+package ch13.familly.ex02;
 
 public class Test {
     public static void main(String[] args){
@@ -22,7 +22,7 @@ public class Test {
 
         // p가 Son 인스턴스인지 여부를 체크
         // 이렇게 체크해야지 안전하게 할 수 있다.
-        if(p instanceof  Son){
+        if(p instanceof Son){
             // down-casting(명시적 형변환, 부모->자식)
             // 부모가 자식클래스로 명시적 형변환
             Son s = (Son) p;

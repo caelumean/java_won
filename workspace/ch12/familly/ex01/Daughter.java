@@ -1,15 +1,14 @@
-package ch12.family.ex01;
+package ch12.familly.ex01;
 
-public class Parent {
+public class Daughter {
     String name;
 
     // 기본 생성자: 컴파일러가 자동으로 만들어줌
 //    Parent(){}
     // 생성자: 클래스명과 동일한 이름, 리턴타입은 없음
-    Parent(String name){
+    Daughter(String name){
         this.name = name;
     }
-
     void eat(){
         System.out.println(name + ": 음식을 맛있게 먹는다.");
     }

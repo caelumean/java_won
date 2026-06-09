@@ -1,4 +1,4 @@
-package ch12.family.ex02;
+package ch12.familly.ex01;
 
 public class Parent {
     String name;
@@ -14,7 +14,7 @@ public class Parent {
         System.out.println(name + ": 음식을 맛있게 먹는다.");
     }
     void play(){
-        System.out.println(name + ": 등산을 한다.");
+        System.out.println(name + ": 코노에 간다");
     }
     void sleep(){
         System.out.println(name + ": 꿀잠을 잔다.");

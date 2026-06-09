@@ -1,4 +1,4 @@
-package ch12.family.ex02;
+package ch13.familly.ex02;
 
 // Son이 Parent의 필드와 메서드를 상속 받는다.
 public class Son extends Parent {

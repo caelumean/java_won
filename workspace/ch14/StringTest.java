@@ -8,5 +8,11 @@ public class StringTest {
         System.out.println(s1 == s2);
         System.out.println(s1 == "Hello");
         System.out.println(s2 == "Hello");
+
+        s1 += " World";
+        s1 += " Java";
+        s1 += " Program";
+
+        System.out.println(s1);
     }
 }
