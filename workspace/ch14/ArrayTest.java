@@ -1,0 +1,70 @@
+package ch14;
+
+import java.util.Arrays;
+
+class ResizableArray{
+    private String[] elements;
+    private int size;
+
+    // 초기 용량을 전달해서 객체를 생성
+    public ResizableArray(int initialCapacity){
+        elements = new String[initialCapacity];
+        size = 0;
+    }
+
+    // 배열의 마지막에 해당 요소를 추가한다.
+    public void add(String elem){
+        // 배열이 다 찼으면 2배 크기로 증가
+        if(size == elements.length){
+            String[] tempList = new String[elements.length * 2];
+
+            for(int i=0;i< elements.length;i++){
+                tempList[i] = elements[i];
+            }
+            elements = tempList;
+        }
+        elements[size] = elem;
+        size++;
+
+        // 위를 한 줄로 줄이면 이렇게하면 된다.
+        // elements[size++] = elem;
+    }
+    public String get(int index){
+        return elements[index];
+    }
+    public String toString(){
+        return Arrays.toString(elements);
+    }
+
+
+}
+
+public class ArrayTest {
+    public static void main(String[] args){
+        // 배열 생성
+//        String[] list = new String[2];
+        ResizableArray list1 = new ResizableArray(2);
+
+        // 배열 데이터 추가
+//        list[0] = "Apple";
+//        list[1] = "Banana";
+
+        list1.add("Tiger");
+        list1.add("Lion");
+
+        // 배열 늘리기 (기존 크기의 2배)
+//        String[] tempList = new String[list.length * 2];
+//
+//        for(int i=0;i< list.length;i++){
+//            tempList[i] = list[i];
+//        }
+        // tempList의 주소를 list에 씌운다.
+        // 그러면 list는 이제 tempList의 주소를 갖게 된다.
+//        list = tempList;
+//        list[2] = "Orange";
+
+//        System.out.println(Arrays.toString(list));
+        System.out.println("인덱스 1의 요소: "+ list1.get(1));
+        System.out.println(list1);
+    }
+}

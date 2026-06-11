@@ -1,5 +1,6 @@
 package homework.h02;
 
+import java.util.Random;
 import java.util.Scanner;
 
 public class Game
@@ -416,6 +417,9 @@ public class Game
                 case 4 -> {
                     if(ultimateSkill > 0)
                     {
+                        // true 또는 false 랜덤
+                        // 둘중에 하나만 꺼낸다면 이렇게 써도 된다.
+//                        boolean chance = new Random().nextBoolean();
                         enemyCurrentHp = playerUltimayeSkillUse(enemyName,enemyCurrentHp);
                         // Skill 횟수 감소
                         ultimateSkill--;
