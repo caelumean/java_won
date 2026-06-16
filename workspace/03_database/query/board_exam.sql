@@ -117,7 +117,16 @@ FROM post p
 LEFT JOIN reply r on p.id = r.post_id
 GROUP BY p.id, p.title;
 
-select title 
+-- 댓글이 3개이상인 게시글
+SELECT p.title, COUNT(r.id) AS reply_count
+FROM post p
+LEFT JOIN reply r on p.id = r.post_id
+GROUP BY p.id, p.title
+HAVING count(r.id) >= 3;
+
+-- 24시간 이내 작성한 최신글
+select title, created_at
+from post 
 where created_at >= DATE_SUB(NOW(), INTERVAL 24 HOUR);
 
 -- 1번문제 최종
@@ -153,13 +162,24 @@ LEFT JOIN reply r on p.id = r.post_id
 GROUP BY p.id, p.title, p.created_at, m.name
 ORDER BY p.created_at DESC;
 
+-- 실험2. if문 실험 
+select m.name,
+ if(p.created_at >= DATE_SUB(NOW(), INTERVAL 24 HOUR),CONCAT('(NEW)',title), title) AS NEW_TITLE,
+ if(COUNT(r.id) >= 3, CONCAT('(BEST)',title), title) AS BEST_TITLE,
+ p.created_at,
+ count(r.id) as 댓글수
+FROM post p
+LEFT JOIN member m on p.member_id = m.id
+LEFT JOIN reply r on p.id = r.post_id
+GROUP BY p.id, p.title, p.created_at, m.name
+ORDER BY p.created_at DESC;
+	  
 
 -- 2. 게시글 상세 조회 (게시글 제목, 내용, 작성자 이름, 이메일, 댓글 작성자 이름, 댓글 내용 조회)
 SELECT p.title, p.content, p.member_id, m.email, m.name, r.content
 FROM post p
 LEFT JOIN member m ON m.id = p.member_id
 LEFT JOIN reply r ON r.post_id = p.id;
-
 
 -- 3. 게시글 등록 (새로운 게시글 작성)
 INSERT into post (member_id, title, content) VALUES (6, '오늘 금발로 염색했습니다~','미용실에서 금발로 염색했는데 GD같네요ㅋㅋㅋ');
