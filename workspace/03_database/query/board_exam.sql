@@ -129,7 +129,7 @@ select title, created_at
 from post 
 where created_at >= DATE_SUB(NOW(), INTERVAL 24 HOUR);
 
--- 1번문제 최종
+-- 1번문제
 SELECT m.name,
 CASE 
 	WHEN p.created_at >= DATE_SUB(NOW(), INTERVAL 24 HOUR) THEN CONCAT('(NEW)',title) 
@@ -168,6 +168,40 @@ select m.name,
  if(COUNT(r.id) >= 3, CONCAT('(BEST)',title), title) AS BEST_TITLE,
  p.created_at,
  count(r.id) as 댓글수
+FROM post p
+LEFT JOIN member m on p.member_id = m.id
+LEFT JOIN reply r on p.id = r.post_id
+GROUP BY p.id, p.title, p.created_at, m.name
+ORDER BY p.created_at DESC;
+
+-- 실험3. if문 하나로
+select m.name,
+ CONCAT(
+ if(p.created_at >= DATE_SUB(NOW(), INTERVAL 24 HOUR),'(NEW)', ''),
+ if(COUNT(r.id) >= 3,'(BEST)',''),
+ p.title) AS title,
+ p.created_at,
+ count(r.id) as 댓글수
+FROM post p
+LEFT JOIN member m on p.member_id = m.id
+LEFT JOIN reply r on p.id = r.post_id
+GROUP BY p.id, p.title, p.created_at, m.name
+ORDER BY p.created_at DESC;
+
+-- 실험4. case 두개를 하나로 
+SELECT m.name,
+CONCAT(
+CASE 
+	WHEN p.created_at >= DATE_SUB(NOW(), INTERVAL 24 HOUR) THEN '(NEW)'
+	ELSE ''
+END,
+CASE 
+	WHEN COUNT(r.id) >= 3 THEN '(BEST)'
+	ELSE ''
+END,
+p.title) AS title, 
+p.created_at,
+count(r.id) as 댓글수
 FROM post p
 LEFT JOIN member m on p.member_id = m.id
 LEFT JOIN reply r on p.id = r.post_id
