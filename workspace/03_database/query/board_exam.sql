@@ -120,10 +120,29 @@ GROUP BY p.id, p.title;
 select title 
 where created_at >= DATE_SUB(NOW(), INTERVAL 24 HOUR);
 
+-- 1번문제 최종
 SELECT m.name,
 CASE 
-	WHEN p.created_at >= DATE_SUB(NOW(), INTERVAL 24 HOUR) THEN CONCAT('(NEW)',title) -- AS new_title
-	WHEN COUNT(r.id) >= 3 THEN CONCAT('(BEST)',title) -- AS best_title
+	WHEN p.created_at >= DATE_SUB(NOW(), INTERVAL 24 HOUR) THEN CONCAT('(NEW)',title) 
+	WHEN COUNT(r.id) >= 3 THEN CONCAT('(BEST)',title)
+	ELSE title
+END AS title,
+p.created_at,
+count(r.id) as 댓글수
+FROM post p
+LEFT JOIN member m on p.member_id = m.id
+LEFT JOIN reply r on p.id = r.post_id
+GROUP BY p.id, p.title, p.created_at, m.name
+ORDER BY p.created_at DESC;
+
+-- 실험1. case 2개 실험
+SELECT m.name,
+CASE 
+	WHEN p.created_at >= DATE_SUB(NOW(), INTERVAL 24 HOUR) THEN CONCAT('(NEW)',title) 
+	ELSE title
+END AS title,
+CASE 
+	WHEN COUNT(r.id) >= 3 THEN CONCAT('(BEST)',title)
 	ELSE title
 END AS title,
 p.created_at,
