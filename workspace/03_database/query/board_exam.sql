@@ -102,6 +102,16 @@ INSERT INTO reply (post_id, member_id, content, created_at) VALUES
   (3, 5, '저도 참고해야겠습니다.', '2026-05-27 16:00:00'),
   (3, 1, '댓글 주신 분들 모두 감사드립니다.', '2026-05-27 17:00:00');
 
+-- 21번글에 댓글 추가 
+INSERT INTO reply (post_id, member_id, content) VALUES
+  (21, 2, '좋은 글이네요.'),
+  (21, 3, '저도 공감합니다.'),
+  (21, 1, '저는 배운 날 바로 타이핑하며 복습해요.'),
+  (21, 4, '오늘 날씨 진짜 좋네요.'),
+  (21, 5, '가입을 환영합니다! 열심히 해봐요.'),
+  (21, 1, '하롱이님 반갑습니다. 같이 파이팅해요!'),
+  (21, 4, 'ArrayList가 사용하기 훨씬 편리하더군요.'),
+  (21, 2, '세 번째 게시글 축하드려요!');
 
 
 -- 1. 게시글 목록 조회 (작성자 이름, 댓글 수 포함, 최신 등록순 정렬)
@@ -174,7 +184,8 @@ LEFT JOIN reply r on p.id = r.post_id
 GROUP BY p.id, p.title, p.created_at, m.name
 ORDER BY p.created_at DESC;
 
--- 실험3. if문 하나로
+-- 실험3. if문 하나로 
+-- NEW조건과 BEST조건 둘 다 충족시 둘 다 뜨게
 select m.name,
  CONCAT(
  if(p.created_at >= DATE_SUB(NOW(), INTERVAL 24 HOUR),'(NEW)', ''),
@@ -189,6 +200,7 @@ GROUP BY p.id, p.title, p.created_at, m.name
 ORDER BY p.created_at DESC;
 
 -- 실험4. case 두개를 하나로 
+-- NEW조건과 BEST조건 둘 다 충족시 둘 다 뜨게
 SELECT m.name,
 CONCAT(
 CASE 
@@ -225,7 +237,7 @@ SET title = '자바 복습 완전 정복',
 WHERE id = 2;
 
 -- 5. 게시글 삭제 (3번 게시글 삭제)
-DELETE FROM post WHERE id = 21;
+DELETE FROM post WHERE created_at >= DATE_SUB(NOW(), INTERVAL 24 HOUR);
 
 -- 6. 게시글 검색 (제목 또는 내용에 '자바'가 포함된 게시글 조회)
 SELECT title, content
@@ -238,7 +250,4 @@ SELECT title, content, created_at
 FROM post
 ORDER BY created_at DESC
 LIMIT 10,10;
-
-
-
 
