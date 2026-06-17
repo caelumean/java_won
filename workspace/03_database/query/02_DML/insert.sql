@@ -46,3 +46,4 @@ VALUES (4, 3, '정말 유용한 정보네요. 감사합니다!');
 
 INSERT INTO reply (post_id, member_id, content)
 VALUES (4, 1, '저도 이 방법으로 해결했습니다.');
+

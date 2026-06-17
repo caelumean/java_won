@@ -10,5 +10,4 @@ public class Animal {
     void move(){
         System.out.println("스스로 움직인다.");
     }
-
 }
