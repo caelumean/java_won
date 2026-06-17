@@ -83,7 +83,6 @@ public class JdbcPostTest {
         ResultSet rs = null;
 
         try {
-
             conn = DriverManager.getConnection(DB_URL, DB_USER, DB_PASSWORD);
             stmt = conn.createStatement();
 
