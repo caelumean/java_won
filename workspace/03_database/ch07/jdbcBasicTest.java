@@ -42,6 +42,8 @@ public class jdbcBasicTest {
             rs = stmt.executeQuery("SELECT * FROM member");
 
             // while문 안에서 각각의 컬럼값들을 꺼내와서 사용하면 된다.
+            // 쿼리문의 결과문 다음행으로 이동한다.
+            // 현재 가리키고 있는 행을 다음 행으로 이동
             while(rs.next()){
                 int id = rs.getInt("id");
                 String email = rs.getString("email");
@@ -56,6 +58,8 @@ public class jdbcBasicTest {
             System.out.println("에러 발생: " + e.getMessage());
         } finally {
             // 5. 생성된 리소스를 생성의 역순으로 해제
+            // 전화를 했으면 끊는 것처럼 끊어야 한다.
+            // 안끊으면 자원이 계속 새어나간다.
             try { if(rs != null) rs.close(); } catch (Exception e) {}
             try { if(stmt != null) stmt.close(); } catch (Exception e) {}
             try { if(conn != null) conn.close(); } catch (Exception e) {}
