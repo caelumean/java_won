@@ -88,6 +88,17 @@ SELECT id, title, created_at
 --     ORDER BY created_at DESC
 --     LIMIT (10-1)*2, 2;
 
+-- 로그인 체크
+SELECT * FROM member WHERE email = 'haru@gmail.com' AND password= '123';
+SELECT * FROM member WHERE email = 'haru@gmail.com' AND password= 'pwd123';
+
+-- SQL Injection 기법
+-- OR 조건에 1이 true 그래서 나머지 조건이 되건 안되건 다 true가 된다.
+-- 그래서 로그인이 가능하게 된다
+SELECT * FROM member WHERE email = 'haru@gmail.com' OR '1'='1' AND password ='sdfaasdas';
+
+SELECT * FROM member WHERE email = 'haru@gmail.com'; DROP DATABASE MEMBER; --'AND password = 123';
+
 
 
 
