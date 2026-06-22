@@ -170,7 +170,6 @@ public class JdbcMemberTest {
             try { if(conn != null) conn.close(); } catch (Exception e) {}
         }
     }
-
     // 회원 삭제(회원의 게시글도 같이 삭제)
     public static void deleteMember(int id){
         Connection conn = null;
