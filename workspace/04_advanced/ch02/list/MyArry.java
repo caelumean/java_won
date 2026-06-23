@@ -8,7 +8,7 @@ package ch02.list;
  *
  *  이러한 불편한 점을 개선하여 배열을 쓰기 쉽게 만드는 클래스
 */
-public class MyArry {
+public class MyArry<T> implements MyList<T>{
 
     /**
      * 내부적으로 요소를 저장하는 배열 선언
@@ -41,15 +41,15 @@ public class MyArry {
      * 배열의 마지막 위치에 지정한 elem를 추가한다.
      * @param elem 배열에 추가할 요소
      */
-    public void append(Object elem){
-        append(count, elem);
+    public void add(T elem){
+        add(count, elem);
     }
     /**
      * 배열의 index에 elem를 삽입한다.
      * @param index 삽입할 위치
      * @param elem 삽입할 요소
      */
-    public void append(int index, Object elem){
+    public void add(int index, T elem){
         // 내부 배열의 공간이 다 찼을 경우 예외 발생
 //        if(count >= data.length){
 //            // 배열의 범위를 벗어난 걸 요청할 때 이러한 메세지를 던져준다
@@ -85,7 +85,7 @@ public class MyArry {
      * 지정한 index의 요소를 삭제한다.
      * @param index
      */
-    public void delete(int index){
+    public void remove(int index){
 
         if(index >= count){
             // 배열의 범위를 벗어난 걸 요청할 때 이러한 메세지를 던져준다
@@ -106,7 +106,7 @@ public class MyArry {
      * @param index 반환할 데이터의 위치
      * @return 지정한 위치의 데이터
      */
-    public Object getElem(int index){
+    public T get(int index){
 
         if(index >= count){
             // 배열의 범위를 벗어난 걸 요청할 때 이러한 메세지를 던져준다
@@ -114,7 +114,7 @@ public class MyArry {
         } else if (index < 0) {
             throw new ArrayIndexOutOfBoundsException(index + "< 0");
         }
-        return data[index];
+        return (T)data[index];
     }
     public int size(){
 //        int size = count;
