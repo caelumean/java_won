@@ -5,7 +5,39 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
   <script>
-    
+    let num1 = 10;
+    let num2 = 3.14, num3 = 100;
+    console.log(num1, num2, num3);
+
+    // JavaScript는 큰따옴표든 작은따옴표든 문자열을 쓸 수 있다.
+    const str1 = 'to';
+    const str2 = "JavaScript";
+    const str3 = `Welcome ${str1} ${str2} World!`;
+
+    console.log(str1,str2);
+    console.log(str3);
+
+    // boolean도 let
+    let b1 = true;
+    let b2 = false;
+    console.log(b1, b2);
+
+    // 속성명 : 속성값
+    const namu = {name: '나무', age: 9};
+    console.log(namu.name, namu.age);
+    console.log(namu);
+
+    const arr = [10, 20, 30];
+    // JavaScript는 배열이 연속된 공간이 아니다.
+    // 그래서 에러가 뜨지않고 undefined가 뜬다.
+    console.log(arr[0], arr[1], arr[5]);
+
+    let nullVal = null; // object타입
+    let unVal;          // undefined 타입
+    console.log(nullVal, unVal);
+
+    console.log(typeof num1, typeof str1, typeof b1, typeof namu, typeof arr, typeof nullVal, typeof unVal);
+
   </script>
 </head>
 <body>
