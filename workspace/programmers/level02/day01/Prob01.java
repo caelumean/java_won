@@ -1,4 +1,4 @@
-package leve02.day01;
+package level02.day01;
 
 public class Prob01 {
     public int solution(int num1, int num2) {

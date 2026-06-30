@@ -1,12 +1,13 @@
-package leve02.day01;
+package level02.day01;
 
-public class Prob04 {
+public class Prob02 {
     public int solution(int num1, int num2) {
         int answer = 0;
-        answer = num1 / num2;
+        answer = num1 - num2;
         return answer;
     }
     void main(){
-        System.out.println(solution(8,4));
+        System.out.println(solution(3,4));
     }
+
 }

@@ -1,4 +1,4 @@
-package leve02.day02;
+package level02.day02;
 
 public class Prob03 {
     public static void main(String[] args){
