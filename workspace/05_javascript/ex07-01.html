@@ -61,17 +61,25 @@
     
     // ID 유효성 검사(4글자에서 12글자로 입력)
     let id = 'ashsdfdsa';
+    const invalidId11 = id.length < 4 || id.length > 12;
+    const invalidId2 = !(id.length >= 4 && id.length <= 12);
     
-    // console.log('id 입력 조건에 맞지 않음', invalidId1, invalidId2);
+    console.log('id 입력 조건에 맞지 않음', invalidId1, invalidId2);
 
     // OR 연산자의 특징
     // 앞의 값이 truthy 라면 앞의 값을 반환
     // 앞의 값이 falsy 라면 뒤의 값을 반환
-    
+    console.log('hello' || 'world');    
+    console.log( 90 || 100);    
+    console.log( 0 || 200);    
+    console.log( null  || 'guest');    
+    console.log( undefined  || 'guest');    
+    console.log('' || 'guest');    
 
     // 논리곱(AND)
     // 피연산자 둘 다 true일 경우 true가 됨
-    
+    // length: 문자열의 글자수가 저장된 속성
+    let validId = (id != null) && (id.length >= 4); // id 값이 null이나 undefined가 아니고 4글자 이상일 경우 true
 
     // AND 연산자의 특징
     // 앞의 값이 truthy 라면 뒤의 값을 반환
