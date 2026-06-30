@@ -12,7 +12,6 @@ public class Prob03 {
                 answer += my_string;
             }
         }
-
         System.out.println(answer);
 
     }
