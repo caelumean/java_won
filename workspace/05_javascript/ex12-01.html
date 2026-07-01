@@ -12,23 +12,47 @@
       - 함수 본문의 중괄호가 생략될 경우 함수의 코드가 자동으로 리턴값으로 사용됨
       - 매개 변수가 하나만 있다면 매개변수의 괄호 생략 가능
     */
+    function add(x, y){
+      return x + y;
+    }
+    console.log(add(10,20));
 
     // 기존 함수(표현식)
+    // 익명 함수
+    let sum = function(x, y){
+      return '표현식: ' + (x + y);
+    };
 
 
     // 화살표 함수
+    sum = (x, y) => {
+      return '화살표: ' + (x + y);
+    };
 
 
     // 화살표 함수 축약
+    // 자바에서는 람다식이라는 비슷한 방식이다.
+    sum = (x, y) => '화살표 축약: ' + (x + y);
+    
+
+    console.log(sum(30,40));
 
 
     // 기존 함수
+    let add10 = function(x){
+      return x + 10;
+    };
 
 
     // 화살표 함수
-
+    add10 = (x) =>{
+      return x + 10;
+    }
 
     // 화살표 함수 축약
+    add10 = (x) => x + 10;
+
+    console.log(add10(32));
 
 
   </script>
