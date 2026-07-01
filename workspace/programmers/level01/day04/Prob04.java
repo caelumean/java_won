@@ -22,7 +22,5 @@ public class Prob04 {
         int m = 78;
 
         System.out.println(solution(ineq,eq,n,m));
-
-
     }
 }

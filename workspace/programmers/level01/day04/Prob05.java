@@ -2,7 +2,7 @@ package level01.day04;
 
 public class Prob05 {
 
-    int solution(int a, int b, boolean flag){
+    public int solution(int a, int b, boolean flag){
         return flag ? a + b : a - b;
     }
     void main(){
