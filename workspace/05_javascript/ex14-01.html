@@ -85,11 +85,13 @@
     const writeForm = document.querySelector('#writeForm');
     
     writeForm.addEventListener('submit', function(event) {
+      // 브라우저의 기본 동작(action 주소로 서버에 요청하는 작업)을 취소
+      event.preventDefault();
       
       // 2. 제목 검증
       const title = document.querySelector('#title'); 
       if(title.value.trim() === ''){
-        alert('제목 입력하세요.');
+        alert('제목을 입력하세요.');
         // 스페이스만 들어간 상황이면 빈문자열로 초기화
         title.value = '';
         title.focus();
@@ -99,10 +101,10 @@
       // 3. 작성자 검증
       // 입력을 안했을 경우 익명으로 넣기
       const checkedWrite = document.querySelector('#writer');
-     // const writer = document.querySelector('#writer'); 
       if(!checkedWrite){
         return;
       }
+      // const writer = document.querySelector('#writer'); 
       // if(writer.value.trim() === ''){
       //   // 스페이스만 들어간 상황이면 빈문자열로 초기화
       //   writer.value = '';
@@ -113,7 +115,7 @@
       // 4. 카테고리 선택 검증
       const category = document.querySelector('select[name=category]'); 
       if(category.value === ''){
-        alert('카테고리 선택하세요');
+        alert('카테고리를 선택하세요');
         category.focus();
         return;
       }
@@ -131,11 +133,10 @@
         title: title.value,
         writer: checkedWrite.value.trim() ? checkedWrite.value.trim() : '익명',
         category: category.value,
+        visible: document.querySelector('input[name="visible"]:checked').value,
         content: content.value
       };
       console.log('최종 입력한 게시글 정보', post);
-
-      event.preventDefault();
       alert('게시글 등록 요청이 정상적으로 전송되었습니다.');
     
     });
