@@ -8,7 +8,8 @@ public class FileToConsole {
     void main(){
         try (
                 FileInputStream fis = new FileInputStream("output.txt");
-                ){
+//                InputStream fis = new FileInputStream("output.txt");
+        ){
             int readData = 0;
 
             while((readData = fis.read()) != -1){
