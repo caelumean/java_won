@@ -11,6 +11,9 @@ public class KeyboardToConsole {
 //            int readData = System.in.read();
             int readData = 0;
 
+            // os는 하나입력할 때마다 보내는게 아니라
+            // 엔터를 친다는 기준으로 버퍼에 저장했다가 보낸다.
+            // 엔터를 칠 때까지 기다린다.
             while((readData = System.in.read()) != -1){
                 // 표준 출력 장치로 1byte 출력한다.
                 System.out.write(readData);
