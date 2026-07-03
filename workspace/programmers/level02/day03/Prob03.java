@@ -3,9 +3,8 @@ package level02.day03;
 import java.util.Arrays;
 
 public class Prob03 {
-    void main(){
 
-        int[] arr = {1, 2, 3, 3, 3, 4};
+    public int solution(int[] arr){
         // 최빈값
         int mode = 0;
         // 현재 숫자가 몇번 나왔는지
@@ -20,14 +19,15 @@ public class Prob03 {
         // 배열의 길이가 1일경우 해당 값만 mode에 넣기
         if(arr.length == 1){
             mode = arr[0];
+            return mode;
         }
-        for(int i = 1; i < arr.length; i++){
+        for(int i = 0; i < arr.length-1; i++){
 
-            // 현재 숫자와 이전 숫자가 같을 경우 count 증가
-            if(arr[i] == arr[i-1]){
-              count++;
+            // 현재 숫자와 다음 숫자가 같을 경우 count 증가
+            if(arr[i] == arr[i+1]){
+                count++;
             }
-            // 그게 아니고 다른 숫자가 나왔을 경우 count 1로 초기화
+            // 그게 아니고 다른 숫자가 나왔을 경우 count를 초기화
             else {
                 count = 1;
             }
@@ -45,6 +45,12 @@ public class Prob03 {
         if(isModeSame){
             mode = -1;
         }
-        System.out.println(mode);
+        return mode;
+    }
+    void main(){
+
+        int[] arr = {1, 1, 1, 2, 2, 3, 3, 3};
+
+        System.out.println(solution(arr));
     }
 }

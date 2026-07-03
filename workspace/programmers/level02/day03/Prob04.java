@@ -9,7 +9,6 @@ public class Prob04 {
         for(int i = 1; i <= n; i += 2){
             arr[i / 2] = i;
         }
-
         return arr;
     }
     void main(){
