@@ -7,8 +7,8 @@ public class EchoClient_2 {
     void startClient(){
         try(
                 // 서버에 접속 요청(localhost: 50000)
-                Socket s = new Socket("localhost", 50000);
-//                Socket s = new Socket("dain2.iptime.org", 50000);
+//                Socket s = new Socket("localhost", 50000);
+                Socket s = new Socket("dain2.iptime.org", 50000);
 
         ){
             // System.in은 try때 close되면 안되기때문에 여기로 옮긴다.

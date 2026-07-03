@@ -30,6 +30,7 @@ public class EchoServer {
 
             int readData = 0;
 
+            // 여기서 블로킹 상태가 된다.
             while((readData = in.read()) != -1){
                 // 클라이언트의 메세지 반송
                 out.write(readData);

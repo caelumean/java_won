@@ -30,6 +30,7 @@ public class EchoServer_1 {
 
             String readData = "";
 
+            // 여기서 블로킹 상태가 된다.
             while((readData = in.readLine()) != null){
                 System.out.println("수신 메세지: " + readData);
                 // 클라이언트의 메세지 반송
