@@ -1,4 +1,4 @@
-package ch04.multi;
+package ch04.echo.multi;
 
 import java.io.*;
 import java.net.ServerSocket;
@@ -28,7 +28,7 @@ public class EchoServerTask implements Runnable{
                 System.out.println(readData);
             }
         }catch (IOException e){
-            System.out.println("네트워크 예외 발생: " + e.getMessage());
+            System.err.println("네트워크 예외 발생: " + e.getMessage());
         }
     }
 }

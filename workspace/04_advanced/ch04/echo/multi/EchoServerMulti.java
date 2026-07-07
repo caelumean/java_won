@@ -1,4 +1,4 @@
-package ch04.multi;
+package ch04.echo.multi;
 
 import java.io.*;
 import java.net.ServerSocket;
