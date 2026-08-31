@@ -9,7 +9,6 @@ public class Prob03 {
             if(numLog[i+1] - numLog[i] == 1){
                 result = result + "w";
             } else if (numLog[i+1] - numLog[i] == -1) {
-
                 result = result + "s";
             } else if (numLog[i+1] - numLog[i] == 10) {
                 result = result + "d";
